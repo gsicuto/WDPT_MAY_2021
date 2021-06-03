@@ -1,0 +1,48 @@
+/* #pai{
+  font-size: 5rem;
+}
+html{
+  font-size: 10px;
+}
+#responsive-div{
+  width: 50vw;
+  height: 10vh;
+  background-color: blue;
+  color:red;
+  font-size: 1.5em;
+}
+
+
+
+@media (min-width: 650px) and (max-width: 999px) {
+  #responsive-div{
+    background-color: green;
+  }
+  html{
+    font-size: 20px ;
+  }
+} */
+
+
+div{
+  width: 100px;
+  height: 100px;
+  border: 1px solid red
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid blue;
+  width: 900px;
+  height: 500px;
+}
+
+
+
+.esquerda{
+  align-self:flex-start;
+  justify-self: ;
+  display:flex;
+}

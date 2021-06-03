@@ -1,0 +1,44 @@
+#box{
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  animation-name: sizing;
+  animation-duration: 2s;
+  animation-direction: reverse;
+  animation-iteration-count: 3;
+}
+
+/* #box:hover{
+  background-color: violet;
+  width: 200px;
+  border-radius: 50%;
+  transform: rotate(180deg);
+  transition: width 2s ease-out 1s, border-radius 1s ease-out 2s, transform 5s;
+  transition-property: width, border-radius;
+  transition-duration: 2s;
+  transition-timing-function: ease-out;
+  transition-delay: 1s; 
+} */
+
+@keyframes sizing {
+  0%{
+    width: 100px;
+  }
+  10%{
+    width: 200px;
+    height: 400px;
+    background-color: green;
+  }
+  30%{
+    width: 400px;
+    height: 100px;
+  }
+  60%{
+    width: 600px;
+    height: 400px;
+  }
+  100%{
+    width: 800px;
+  }
+}
+

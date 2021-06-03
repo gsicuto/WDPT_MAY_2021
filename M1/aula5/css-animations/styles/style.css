@@ -1,0 +1,22 @@
+.box{
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  animation-name: transform;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+@keyframes transform {
+  0% {
+    border-radius: 10%;
+    background-color: blue;
+  }
+  50% {
+    border-radius: 30%;
+    background-color: red;
+  }
+  100% {
+    border-radius: 50%;
+    background-color: salmon;
+  }
+}
