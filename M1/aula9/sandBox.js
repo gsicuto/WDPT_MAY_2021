@@ -1,6 +1,6 @@
 // Scope
 
-let variavelGlobal = 1 // Escopo Global
+const variavelGlobal = 1; // Escopo Global
 
 const message = 'oi do escopo global';
 
@@ -23,10 +23,10 @@ function sayHello() {
 
 // o var vaza do escopo do if o let cria uma nova variavel no escopo do if
 
-let name = 'Gabriel';
+const name = 'Gabriel';
 
 if (true) {
-  let name = 'Carlos';
+  const name = 'Carlos';
   console.log(name, '<--- dentro do if');
 }
 
@@ -35,9 +35,9 @@ console.log(name, '<--- fora do if');
 
 // var pode ser redeclarado e reatribuido
 
-var idade = 20 // declaração
-var idade = 30 // redeclaração
-idade = 50 // reatribuição
+var idade = 20; // declaração
+var idade = 30; // redeclaração
+idade = 50; // reatribuição
 
 console.log(idade);
 
@@ -50,54 +50,53 @@ console.log(animal);
 
 // const
 
-const curso = 'WebDev' // Declaração
+const curso = 'WebDev'; // Declaração
 // const curso = 'UX' // não posso redeclarar erro (syntax)
-// curso = 'UX' // não permite reatribuição 
+// curso = 'UX' // não permite reatribuição
 
 
 // Hoisting
 oi(); // funções declarativas podem ser chamadas antes da declaracão da mesma
 
-function oi () {
+function oi() {
   console.log('oi');
 }
 
 
-console.log(variavel)
+console.log(variavel);
 
-var variavel = 0 // variaveis declaradas com var sofrem de hoisting somente a declaração não a atribuição de valor;
+var variavel = 0; // variaveis declaradas com var sofrem de hoisting somente a declaração não a atribuição de valor;
 
 // Shadowing
 
-let a = 2
-let b = 4
+const a = 2;
+let b = 4;
 
-console.log('antes da função' ,a , b)
+console.log('antes da função', a, b);
 
 function interna() {
-  let a = 3; // Shadowing, criando uma nova variavel com o mesmo nome de outra em outro escopo
+  const a = 3; // Shadowing, criando uma nova variavel com o mesmo nome de outra em outro escopo
   b = 5; // reatribuindo valor para variavel do escopo global
-  console.log('dentro da função' ,a , b)
+  console.log('dentro da função', a, b);
 }
 
 interna();
 
-console.log('fora da função' ,a , b)
+console.log('fora da função', a, b);
 
 // Dentro voce pode acessar fora mas fora voce nao pode acessar dentro by Evanio
-var c = 4;
-let d = 5
+const c = 4;
+const d = 5;
 
 function a1() {
-
-  let c = 2;
+  const c = 2;
   // console.log(interno);
   function b2() {
     console.log(c);
 
-    function b3 () {
-      let c = 5;
-      let interno = 80;
+    function b3() {
+      const c = 5;
+      const interno = 80;
       console.log(d);
     }
 
@@ -111,3 +110,68 @@ function a1() {
 console.log(c);
 
 a1();
+
+
+// try catch finally and throw
+
+function getUserName(user) {
+  if (!user.name || !user.age) {
+    throw new SyntaxError('incomplete data: function expect name and age for execution'); // para a execução da função igual o return
+  }
+  if (typeof user.age !== 'number') {
+    throw new TypeError('age needs to be Number');
+  }
+  return user.name;
+}
+
+const user = {
+  name: 'Gabriel',
+  age: '20',
+};
+
+
+try {
+  const result = getUserName(user);
+  console.log('My name is ', result);
+} catch (err) {
+  console.error(err);
+} finally {
+  console.log('executo independente do resultado');
+}
+
+
+// Async
+
+function getDinner(callback) {
+  setTimeout(() => {
+    console.log('dinner'); // <---
+    callback();
+  }, 1000);
+}
+
+
+function getDessert() {
+  console.log('dessert');
+}
+
+getDinner(getDessert); // na excuçnao eu passei a função de callback
+
+//  Set Timeout e SetInterval
+
+
+// const timeoutID = setTimeout(() => console.log('2s passaram'), 2000);
+
+let counter = 0;
+
+const callBack = function () {
+  console.log(counter);
+  let timeoutId = setTimeout(callBack, 1000);
+  counter += 1;
+  if (counter > 10) clearTimeout(timeoutId);
+};
+
+const intervalId = setInterval(() => {
+  console.log(counter);
+  counter += 1;
+  if (counter > 10) clearInterval(intervalId);
+}, 1000);
