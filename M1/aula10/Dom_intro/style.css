@@ -1,0 +1,23 @@
+body {
+  padding: 0px;
+  margin: 0px;
+  background-image: url("https://static.pexels.com/photos/2143/lights-party-dancing-music.jpg");
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+}
+
+#image {
+    width: 100%;
+    height: 100vh;
+    opacity: 0.8;
+    text-align: center;
+    color: #fff;
+}
+
+#text {
+  line-height: 100vh;
+  font-size: 80px;
+  margin: 0px;
+  font-family: Verdana;
+}
