@@ -43,5 +43,14 @@ async function makefood() {
   console.log(result);
 }
 
-makefood();
 
+let sopa = cook('sopa', 4000);
+let bife = cook('bife', 6000);
+let strogonoff = cook('strogonoff', 7000);
+
+// let food = makefood();
+
+
+Promise.all([sopa, bife, strogonoff, cook('brigadeiro', 3010)]).then((result) => {
+  console.log(result);
+});
