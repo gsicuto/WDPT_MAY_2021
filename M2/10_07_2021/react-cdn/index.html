@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script crossorigin src="https://unpkg.com/react@16.13.0/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16.13.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+</head>
+<body>
+  <div id="root">
+
+  </div>
+
+  <script type="text/babel">
+    const root = document.getElementById('root');
+    // const mainHeading = document.createElement('h1');
+    // mainHeading.textContent = 'Olá WD50';
+    // root.appendChild(mainHeading);
+
+    // const element = React.createElement('h1',{
+    //   children: 'Are tou React-ing?'
+    // });
+    // ReactDOM.render(element, root);
+
+    // const element = React.createElement('div', {
+    //   children: [
+    //     React.createElement('h1',{
+    //       children:'Are you Reacting?'
+    //     }),
+    //     React.createElement('h3',{
+    //       children: [
+    //         'Time now is:',
+    //         `${new Date().getHours()}:
+    //         ${new Date().getMinutes()}:
+    //         ${new Date().getSeconds()}`
+    //       ]
+    //     })
+    //   ]
+    // });
+
+    // JSX
+
+    const element = (
+      <div className="container">
+        <h1>Are you Reat-ing?</h1>
+        <h3>
+          Time now is  
+           {new Date().getHours()}:
+           {new Date().getMinutes()}:
+           {new Date().getSeconds()}
+        </h3>
+      </div>
+    )
+
+    ReactDOM.render(element, root)
+  </script>
+</body>
+</html>
