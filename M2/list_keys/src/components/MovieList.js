@@ -14,7 +14,7 @@ class MovieList extends Component {
   state = {
     movies: movies2,
     showOscars: true,
-    showButtons: true
+    showAddMovie: true
   };
 
   handleDeleteMovie = (id) => {
@@ -38,7 +38,7 @@ class MovieList extends Component {
   }
 
   handleShowButton = () => {
-    this.setState({showButtons: !this.state.showButtons})
+    this.setState({showAddMovie: !this.state.showAddMovie})
   }
 
   render() {
@@ -47,20 +47,15 @@ class MovieList extends Component {
     return (
       <>
         <div className="list-header">
-          <h1>Movie List</h1>
-          {this.state.showButtons ?( 
-            <>
+          <h1>Movie List</h1> 
               <button onClick={() => {this.handleToogleOscar()}}>
                 {this.state.showOscars ? 'Hide Oscars': 'Show Oscars'}
               </button>
-              <AddMovie addMovie={this.handleAddMovie} />
-              <button onClick={()=>{this.handleShowButton()}}>Hide Buttons</button>
-            </>
-            ) :
-            <button onClick={()=>{this.handleShowButton()}}>Show Buttons</button>
-        }
+          
+            <button onClick={()=>{this.handleShowButton()}}>AddMovie</button>
           
         </div>
+        {this.state.showAddMovie && <AddMovie addMovie={this.handleAddMovie} />}
         <div className='movies-list'>
           {filteredMovies.map((item) => (
             <Card
