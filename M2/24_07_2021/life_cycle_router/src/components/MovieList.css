@@ -1,0 +1,11 @@
+.list-header{
+  display: flex;
+  justify-content: space-around;
+  margin:10px;
+}
+.movies-list{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top:10px;
+}
