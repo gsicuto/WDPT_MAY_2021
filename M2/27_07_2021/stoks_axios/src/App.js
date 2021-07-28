@@ -13,13 +13,13 @@ class App extends Component {
   componentDidMount = async () => {
     const { data } = await axios.get('https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol=IBM&apikey=demo')
     console.log(data)
-    const dates = Object.keys(data['Monthly Time Series']).slice(0,10)
+    const dates = Object.keys(data['Monthly Time Series'])
     console.log('datas----->', dates)
 
     const stockPrices =  dates.map(date => {
       return {
         date,
-        price: data['Monthly Time Series'][date]['4. close']
+        price: parseInt(data['Monthly Time Series'][date]['4. close'])
       }
     })
     this.setState({
@@ -35,7 +35,7 @@ class App extends Component {
         <Line type="monotone" dataKey="price" stroke="#8884d8" />
         <CartesianGrid stroke="#ccc" />
         <XAxis dataKey="date" />
-        <YAxis />
+        <YAxis type="number" />
         <Tooltip />
     </LineChart>
     </>
