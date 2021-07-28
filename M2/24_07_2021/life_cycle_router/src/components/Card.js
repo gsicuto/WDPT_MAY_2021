@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './Card.css'
 
 class Card extends Component {
@@ -21,13 +22,15 @@ class Card extends Component {
     const {title, director, id, hasOscars, deleteMovie} = this.props
 
     return (
-      <div className='movie-card'>
-        <h2>{title}</h2>
-        {hasOscars && <span>🏆</span>}
-        {!hasOscars && <p>No Oscars</p>}
-        <p>Director: {director}</p>
-        <button onClick={ () => { deleteMovie(id) } }>REMOVE</button>
-      </div>
+      <Link to={`/movielist/${id}`}>
+        <div className='movie-card'>
+          <h2>{title}</h2>
+          {hasOscars && <span>🏆</span>}
+          {!hasOscars && <p>No Oscars</p>}
+          <p>Director: {director}</p>
+          <button onClick={ () => { deleteMovie(id) } }>REMOVE</button>
+        </div>
+      </Link>
     );
   }
 
