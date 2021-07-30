@@ -1,0 +1,23 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "name": "Evanio",
+      "cidade": "Rio de Janeiro"
+    },
+    {
+      "name": "Pedro",
+      "id": 2
+    }
+  ],
+  "tas": [
+    {
+      "name": "Julia",
+      "id": 1
+    },
+    {
+      "name": "DK",
+      "id": 2
+    }
+  ]
+}
