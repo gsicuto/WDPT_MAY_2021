@@ -1,11 +1,11 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
   name: { type: String, required: true },
   password: String,
-  profile: {type: String, enum: ['admin', 'convecional'], default: 'convecional' },
+  profile: { type: String, enum: ['admin', 'convecional'], default: 'convecional' },
   email: {
-    type: String, 
+    type: String,
     match: /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/,
     unique: true,
     lowercase: true,
