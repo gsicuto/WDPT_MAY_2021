@@ -4,7 +4,7 @@ const jokeSchema = new Schema(
   {
     title: String,
     joke: { type: String, required: true, unique: true },
-    author: String,
+    author: { type: Schema.Types.ObjectId, ref: 'User' },
   },
   {
     timestamps: true,
