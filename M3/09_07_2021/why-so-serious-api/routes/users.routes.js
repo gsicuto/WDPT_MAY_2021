@@ -1,5 +1,6 @@
 const { Router } = require('express');
 const User = require('../models/User');
+const uploadImage = require('../config/cloudinary.config');
 
 const router = Router();
 
@@ -23,7 +24,7 @@ router.get('/user', async (req, res) => {
   }
 });
 
-router.put('/user/addjoke/:jokeid', async (req, res)=> {
+router.put('/user/addjoke/:jokeid', async (req, res) => {
   const { jokeid } = req.params;
   const { id } = req.user;
   try {
@@ -32,7 +33,17 @@ router.put('/user/addjoke/:jokeid', async (req, res)=> {
   } catch (error) {
     res.status(500).json(error);
   }
+});
 
-})
+router.post('/user/uploadprofilepic', uploadImage.single('image'), async (req, res) => {
+  const { path } = req.file;
+  const { id } = req.user;
+  try {
+    const updatedUser = await User.findByIdAndUpdate(id, { profilePicture: path }, { new: true });
+    res.status(200).json(updatedUser);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
 
 module.exports = router;
