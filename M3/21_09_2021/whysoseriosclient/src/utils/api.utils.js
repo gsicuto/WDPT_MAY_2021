@@ -58,6 +58,18 @@ class Api {
       throw new Error(error)
     }
   }
+
+  uploadPic = async (file) => {
+    const uploadData = new FormData();
+    uploadData.append('image',file)
+    try {
+      const { data } = await this.api.put('/user/uploadimage', uploadData)
+      return data
+    } catch (error) {
+      throw new Error(error)
+    }
+  }
+
 }
 
 export default new Api();

@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom'
 import Login from './components/Login'
 import User from './components/User'
 import Joke from './components/Joke'
+import FormProfilePic from './components/FormProfilePic'
 
 
 function App() {
@@ -12,6 +13,8 @@ function App() {
       <Route exact path = '/login' render= {(props)=> <Login {...props}/>} />
       <Route path = '/users' component = {User}/>
       <Route path ='/joke/:id' component = {Joke}/>
+      <Route path ='/uploadpic' component = {FormProfilePic}/>
+      
     </div>
   );
 }
